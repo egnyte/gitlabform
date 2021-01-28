@@ -25,7 +25,7 @@ def gitlab(request):
 
     def fin():
         gl.delete_project(GROUP_AND_PROJECT_NAME)
-        # TODO: find some smarter way to avoid 400 when trying to create project while it doesn't exist yet
+        # TODO: find some smarter way to avoid 400 when trying to create project while it is still being deleted
         time.sleep(15)
 
     request.addfinalizer(fin)
